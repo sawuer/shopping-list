@@ -23,7 +23,7 @@ export default {
         .filter(it => String(state.searchHeader === 'unit' ? state.units[it[state.searchHeader]].name : it[state.searchHeader])
         .toLowerCase().includes(state.searchText.toLowerCase()) && it)
         .sort((a, b) => state.sortedByName && (a.name !== b.name ? a.name < b.name ? -1 : 1 : 0))
-        .sort(it => it.bought)
+        .sort((a, b) => (a.bought === b.bought) ? 0 : b.bought ? -1 : 1)
     }
   },
   mutations: {
