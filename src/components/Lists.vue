@@ -26,6 +26,7 @@
           :class="{ 'v-list-item--active': selectedListId === item.id }"
         >
           <v-text-field v-if="updatingListId === item.id"
+            @click.prevent
             v-model="updatingListName"
           ></v-text-field>
           <v-list-item-content v-else>
