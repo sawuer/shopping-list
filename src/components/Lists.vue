@@ -16,13 +16,12 @@
     </v-form>
     <v-list class="pt-5 overflow-y-auto" style="max-height: 400px">
       <router-link
-        @click.prevent
+        @click.prevent.stop
         v-for="(item, key) in lists"
         :key="key"
         :to="routingLists(item)"
       >
         <v-list-item
-          link
           @click="!updatingListId && onSelectList(item.id)"
           :class="{ 'v-list-item--active': selectedListId === item.id }"
         >
