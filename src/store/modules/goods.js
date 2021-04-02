@@ -22,7 +22,7 @@ export default {
         .filter(it => it.listId === rootState.lists.selectedListId)
         .filter(it => String(state.searchHeader === 'unit' ? state.units[it[state.searchHeader]].name : it[state.searchHeader])
         .toLowerCase().includes(state.searchText.toLowerCase()) && it)
-        .sort((a, b) => state.sortedByName && (a.name.toLowerCase() < b.name.toLowerCase()))
+        .sort((a, b) => state.sortedByName && (a.name !== b.name ? a.name < b.name ? -1 : 1 : 0))
         .sort(it => it.bought)
     }
   },
