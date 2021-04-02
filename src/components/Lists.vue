@@ -1,5 +1,5 @@
 <template>
-  <v-container class="lists">
+  <v-container class="lists elevation-2">
     <v-form @submit.prevent="onCreateList">
       <v-text-field
         v-model="listName"
@@ -7,16 +7,16 @@
         required
       ></v-text-field>
       <v-btn
+        class="mb-3"
         block
         type="submit"
         color="primary"
         :disabled="!listName"
-        v-text="'Добавить список'"
+        v-text="'Добавить'"
       ></v-btn>
     </v-form>
-    <v-list class="pt-5 overflow-y-auto" style="max-height: 400px">
+    <v-list class="overflow-y-auto" style="max-height: 422px">
       <router-link
-        @click.prevent.stop
         v-for="(item, key) in lists"
         :key="key"
         :to="routingLists(item)"
@@ -26,7 +26,6 @@
           :class="{ 'v-list-item--active': selectedListId === item.id }"
         >
           <v-text-field v-if="updatingListId === item.id"
-            @click.stop.prevent
             v-model="updatingListName"
           ></v-text-field>
           <v-list-item-content v-else>
