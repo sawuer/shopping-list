@@ -18,12 +18,6 @@ export default {
   },
   getters: {
     goods (state, _, rootState) {
-      console.log(state.goods
-        .filter(it => it.listId === rootState.lists.selectedListId)
-        .filter(it => String(state.searchHeader === 'unit' ? state.units[it[state.searchHeader]].name : it[state.searchHeader])
-          .toLowerCase().includes(state.searchText.toLowerCase()) && it)
-        .sort((a, b) => state.sortedByName && (a.name < b.name))
-        .sort(it => it.bought))
       return state.goods
         .filter(it => it.listId === rootState.lists.selectedListId)
         .filter(it => String(state.searchHeader === 'unit' ? state.units[it[state.searchHeader]].name : it[state.searchHeader])

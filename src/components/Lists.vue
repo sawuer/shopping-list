@@ -97,7 +97,6 @@ export default {
     },
     onUpdateList () {
       let { updatingListName, updatingListId } = this
-      console.log(updatingListName, updatingListId)
       this.updateList({ updatingListName, updatingListId })
       this.updatingListId = null
     },

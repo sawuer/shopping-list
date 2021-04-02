@@ -1,4 +1,4 @@
-# ex
+# Shopping List
 
 ## Project setup
 ```
