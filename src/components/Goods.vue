@@ -97,14 +97,14 @@
         <v-row align="center">
           <v-col cols="4">
             <v-text-field
-              v-model="goodsItemName"
+              v-model.trim="goodsItemName"
               label="Наименование"
             ></v-text-field>
           </v-col>
           <v-col cols="2">
             <v-text-field
               label="Кол-во"
-              v-model="goodsItemCount"
+              v-model.trim="goodsItemCount"
               type="number"
               min="1"
             ></v-text-field>

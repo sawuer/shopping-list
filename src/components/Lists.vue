@@ -2,7 +2,7 @@
   <v-container class="lists elevation-2">
     <v-form @submit.prevent="onCreateList">
       <v-text-field
-        v-model="listName"
+        v-model.trim="listName"
         label="Новый список"
         required
       ></v-text-field>
@@ -59,7 +59,7 @@ export default {
     updatingListId: null,
   }),
   async mounted () {
-    await this.onSelectList(this.$route.params.id || '')
+    this.onSelectList(this.$route.params.id || '')
     await this.getLists()
   },
   computed: {
