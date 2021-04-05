@@ -41,12 +41,12 @@ export default {
     }
   },
   actions: {
-    async getGoods ({ commit }) {
-      let goods = await (localStorage.getItem('goods') && JSON.parse(localStorage.getItem('goods'))) || []
+    getGoods ({ commit }) {
+      let goods = (localStorage.getItem('goods') && JSON.parse(localStorage.getItem('goods'))) || []
       commit('setGoods', goods)
     },
-    async setGoods({ commit}, goods) {
-      await localStorage.setItem('goods', JSON.stringify(goods))
+    setGoods({ commit}, goods) {
+      localStorage.setItem('goods', JSON.stringify(goods))
       commit('setGoods', goods)
     },
     createGoodsItem({ state, dispatch, rootState }, { goodsItemName, goodsItemCount, goodsItemUnit }) {
@@ -85,16 +85,16 @@ export default {
       dispatch('setGoods', goods)
     },
 
-    async updateSearch ({ commit }, searchText) {
-      await localStorage.setItem('searchText', searchText)
+    updateSearch ({ commit }, searchText) {
+      localStorage.setItem('searchText', searchText)
       commit('setSearchText', searchText)
     },
-    async updateSearchHeader ({ commit }, searchHeader) {
-      await localStorage.setItem('searchHeader', searchHeader)
+    updateSearchHeader ({ commit }, searchHeader) {
+      localStorage.setItem('searchHeader', searchHeader)
       commit('setSearchHeader', searchHeader)
     },
-    async updateSortedByName ({ commit }, boolean) {
-      await localStorage.setItem('sortedByName', boolean)
+    updateSortedByName ({ commit }, boolean) {
+      localStorage.setItem('sortedByName', boolean)
       commit('setSortedByName', boolean)
     }
   }

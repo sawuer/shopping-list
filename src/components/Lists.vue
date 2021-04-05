@@ -59,8 +59,8 @@ export default {
     updatingListId: null,
   }),
   async mounted () {
+    this.getLists()
     this.onSelectList(this.$route.params.id || '')
-    await this.getLists()
   },
   computed: {
     ...mapState('lists', [

@@ -13,12 +13,12 @@ export default {
     }
   },
   actions: {
-    async getLists({ commit }) {
-      let lists = await (localStorage.getItem('lists') && JSON.parse(localStorage.getItem('lists'))) || []
+    getLists({ commit }) {
+      let lists = (localStorage.getItem('lists') && JSON.parse(localStorage.getItem('lists'))) || []
       commit('setLists', lists)
     },
-    async setLists({ commit }, lists) {
-      await localStorage.setItem('lists', JSON.stringify(lists))
+    setLists({ commit }, lists) {
+      localStorage.setItem('lists', JSON.stringify(lists))
       commit('setLists', lists)
     },
     createList({ state, dispatch }, name) {
@@ -42,9 +42,9 @@ export default {
       dispatch('setLists', lists)
       dispatch('goods/deleteGoodsItemByListId', listId, { root: true })
     },
-    async selectList ({ state, commit }, selectedListId) {
+    selectList ({ state, commit }, selectedListId) {
       let listId = selectedListId === state.selectedListId ? null : selectedListId
-      await localStorage.setItem('selectedListId', listId)
+      localStorage.setItem('selectedListId', listId)
       commit('setSelectedListId', listId)
     },
   }
