@@ -1,4 +1,10 @@
-# Shopping List
+# Тестовое задание на Vue, Vuex, VueRouter
+
+## Описание
+```
+Описание: https://drive.google.com/file/d/1CwZPvSRs4Y_k-spoX0DG48oUAr9KyCgY/view?usp=sharing
+Посмотреть: https://shopping-list-kappa.vercel.app
+```
 
 ## Project setup
 ```
