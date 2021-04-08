@@ -35,8 +35,8 @@
         <thead>
           <tr>
             <th 
-              v-for="(item, key) in headers"
-              :key="key"
+              v-for="item in headers"
+              :key="item.id"
               class="text-left"
               v-text="item.name"
             ></th>
@@ -169,7 +169,7 @@ export default {
     ]),
     sortBtnText () {
       return this.sortedByName ? 'По новым' : 'По имени'
-    },
+    }
   },
   methods: {
     ...mapActions('goods', [

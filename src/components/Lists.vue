@@ -17,8 +17,8 @@
     </v-form>
     <v-list class="overflow-y-auto" style="max-height: 422px">
       <router-link
-        v-for="(item, key) in lists"
-        :key="key"
+        v-for="item in lists"
+        :key="item.id"
         :to="routingLists(item)"
       >
         <v-list-item
@@ -66,7 +66,16 @@ export default {
     ...mapState('lists', [
       'lists',
       'selectedListId'
-    ])
+    ]),
+    routingLists () {
+      return list => {
+        if (this.selectedListId === list.id) {
+          return { name: 'List', params: { id: list.id }}
+        } else {
+          return { name: 'Home' }
+        }
+      }
+    },
   },
   methods: {
     ...mapActions('lists', [
@@ -76,13 +85,6 @@ export default {
       'deleteList',
       'updateList',
     ]),
-    routingLists (list) {
-      if (this.selectedListId === list.id) {
-        return { name: 'List', params: { id: list.id }}
-      } else {
-        return { name: 'Home' }
-      }
-    },
     onSelectListToUpdate ({ id, name }) {
       this.updatingListId = id
       this.updatingListName = name
